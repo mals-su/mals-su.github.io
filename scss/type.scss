@@ -1,0 +1,93 @@
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family:$font-family-serif;
+}
+h1, .h1 {
+    @include font($font-size-h1, $line-height-h1, 500);
+    text-transform: uppercase;
+}
+h2, .h2 {
+    @include font($font-size-h2, $line-height-h2, 700);
+    margin-bottom:16px;
+}
+h3, .h3 {
+    @include font($font-size-h3, $line-height-h3, 700);
+    margin-bottom:17px;
+}
+h4, .h4 {
+    @include font($font-size-h4, $line-height-h4, 500);
+}
+h5, .h5 {
+    @include font($font-size-h5, $line-height-h5);
+}
+h6, .h6 { 
+    @include font($font-size-h6, $line-height-h6);
+    margin-bottom:9px;
+}
+
+@include media-breakpoint-up(lg) {
+    h1, .h1 {
+        @include font($font-size-h1-desktop, $line-height-h1-desktop);
+    }
+    h2, .h2 {
+        @include font($font-size-h2-desktop, $line-height-h2-desktop);
+        margin-bottom:57px;
+    }
+    h3, .h3 {
+        @include font($font-size-h3-desktop, $line-height-h3-desktop);
+        margin-bottom:22px;
+    }
+    h4, .h4 {
+        @include font($font-size-h4-desktop, $line-height-h4-desktop);
+    }
+}
+
+p,
+address,
+ol,
+ul,
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    &:last-child {
+        margin-bottom:0;
+    }
+}
+
+address {
+    font-style: normal;
+    line-height: inherit;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+.text-primary {
+    color: $brand-primary;
+}
+.text-gray {
+    color: $gray;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}

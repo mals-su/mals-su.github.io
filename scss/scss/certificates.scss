@@ -1,0 +1,97 @@
+.certificates {
+    &__main-title {
+        display:none;
+    }
+
+    &__list {
+        margin-left:-10px;
+        margin-right:-10px;
+    }
+
+    &__link {
+        background-color:$white;
+        border-radius:$border-radius;
+        display:flex;
+        position:relative;
+        overflow:hidden;
+        @include size(140px);
+        margin:0 auto;
+    }
+
+    &__img {
+        display:block;
+        margin:auto;
+        max-width:100%;
+        max-height:100%;
+    }
+
+    &__icon {
+        position:absolute;
+        right:-15px;
+        bottom:0;
+        color:$white;
+        background-color: #de2116;
+        background-image: -webkit-linear-gradient(top, #ca0703, #de2116);
+        background-image:    -moz-linear-gradient(top, #ca0703, #de2116);
+        background-image:     -o-linear-gradient(top,  #ca0703, #de2116);
+        background-image:    -ms-linear-gradient(top,  #ca0703, #de2116);
+        background-image:  linear-gradient(to bottom,  #ca0703, #de2116);
+        transform:skew(-40deg);
+        border-radius:$border-radius 0 $border-radius 0 ;
+        @include size(57px, 29px);
+        line-height:29px;
+        padding-left:14px;
+
+        &:before {
+            transform:skew(40deg);
+            display:block;
+            font-size:$font-size-lg-desktop;
+        }
+    }
+
+    &__title {
+        @include em-line-height($font-size-base, 16px);
+        text-align:center;
+        margin:10px auto 0;
+        width:140px;
+    }
+
+
+    @include media-breakpoint-up(md) {
+        &__list {
+            margin-left:-15px;
+            margin-right:-15px;
+        }
+ 
+        &__item {
+            padding-left:15px;
+            padding-right:15px;
+        }
+
+        &__link {
+            @include size(auto, 216px);
+        }
+
+        &__title {
+            @include font($font-size-md, $line-height-lg);
+            margin-top:15px;
+            width:auto;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom:59px;
+
+        &__main-title {
+            display:block;
+            margin-bottom:35px;
+        }
+    }
+
+    @media (min-width:1100px) {
+        .slick-arrow {
+            top:88px;
+            transform:none;
+        }
+    }
+}

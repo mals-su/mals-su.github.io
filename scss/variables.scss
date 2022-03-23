@@ -1,0 +1,220 @@
+// Variables
+
+// Table of Contents
+//
+// Colors
+// Grid
+// Body
+// Links
+// Fonts
+// Components
+
+
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+
+// Replace `$search` with `$replace` in `$string`
+// @author Hugo Giraudel
+// @param {String} $string - Initial string
+// @param {String} $search - Substring to replace
+// @param {String} $replace ('') - New value
+// @return {String} - Updated string
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+  }
+}
+
+
+// Colors
+//
+// Grayscale and brand colors
+
+$base-color: #333333 !default;
+$base-color-dark: #1B2733 !default;
+$gray: #d9d9d9 !default;
+$gray-2: #fffbd5 !default;
+$black: #000000 !default;
+$black-2: #000101 !default;
+$white: #ffffff !default;
+$yellow: #fffbd5 !default;
+
+$brand-primary: #d72719 !default;
+$brand-primary-bg: #d6100a !default;
+$brand-primary-bg-2: #e82d1e !default;
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1440px,
+  xxxl: 1680px
+) !default;
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  lg: 1021px
+) !default;
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default; // 30px
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $gray !default;
+$body-color: $base-color !default;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: $brand-primary !default;
+$link-decoration: underline !default;
+$link-hover-color: $link-color !default;
+$link-hover-decoration: underline !default;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: Verdana, Arial, "Helvetica Neue", sans-serif !default;
+$font-family-serif: 'RussianRailGPro', Georgia, "Times New Roman", Times, serif !default;
+$font-family-serif-2: 'RussianRailGPro-Extended', 'RussianRailGPro', Georgia, "Times New Roman", Times, serif !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 12px !default;
+$font-size-base-desktop: 15px !default;
+$font-size-lg: 13px !default; 
+$font-size-lg-desktop: 17px !default; 
+$font-size-md: 14px !default; 
+$font-size-sm: $font-size-base !default;
+
+$line-height-base: 18px !default;
+$line-height-base-desktop: 24px !default;
+$line-height-lg: 20px !default;
+$line-height-lg-desktop: 26px !default;
+$line-height-md: 19px !default;
+$line-height-sm: 17px !default;
+
+$font-size-h1: 24px !default;
+$font-size-h1-desktop: 51px !default;
+$font-size-h2: 24px !default;
+$font-size-h2-desktop: 36px !default;
+$font-size-h3: 18px !default;
+$font-size-h3-desktop: 24px !default;
+$font-size-h4: 14px !default;
+$font-size-h4-desktop: 24px !default;
+$font-size-h5: 18px !default;
+$font-size-h6: $font-size-base !default;
+
+$line-height-h1: 24px !default;
+$line-height-h1-desktop: 51px !default;
+$line-height-h2: 26px !default;
+$line-height-h2-desktop: 38px !default;
+$line-height-h3: 22px !default;
+$line-height-h3-desktop: 26px !default;
+$line-height-h4: 24px !default;
+$line-height-h4-desktop: 26px !default;
+$line-height-h5: 21px !default;
+$line-height-h6: $line-height-base !default;
+
+$small-font-size: 80% !default;
+
+$text-muted: $gray !default;
+
+$border-radius: 5px !default;
+
+// Buttons
+//
+//
+$btn-padding-x: 16px !default;
+$btn-padding-y: 1px !default;
+$btn-font-weight: 400 !default;
+$btn-font-size: $font-size-lg-desktop !default;
+$btn-line-height: 48px !default;
+$btn-border-width: 1px !default;
+
+$btn-default-color: $yellow !default;
+$btn-default-bg: #313131 !default;
+$btn-default-border: #1a1a1a !default;
+$btn-default-hover-bg: $btn-default-bg !default;
+
+$btn-link-disabled-color: $gray !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:$border-radius !default;
+$btn-border-radius-lg: 0 !default;
+
+
+// Form
+//
+// 
+$input-color-placeholder: #565656 !default;
+
+$input-height: 51px !default;
+$input-font-size: $font-size-base-desktop !default;
+$input-padding-y: 0 !default;
+$input-padding-x: 19px !default;
+$input-line-height: $line-height-base !default;
+
+$input-bg: $white !default;
+$input-bg-disabled: $gray !default;
+
+$input-color: $base-color !default;
+$input-border-color: #a60c00 !default;
+$input-button-border-width: 1px !default; // For form controls and buttons
+
+$input-bg-focus: $white !default;
+$input-border-focus: $gray !default;
+$input-color-focus: $base-color !default;
+
+$form-group-margin-bottom: 17px !default;
+
+$cursor-disabled: not-allowed !default;

@@ -1,0 +1,122 @@
+.security {
+    background-image:url(../i/bg-security.jpg);
+
+    .section__container {
+        padding-top:0;
+        padding-bottom:13px;
+    }
+
+    &__content {
+        background-color:rgba($black,.85);
+        padding-top:20px;
+        padding-bottom:20px;
+        margin-bottom:25px;
+    }
+
+    &__list {
+        @include list-unstyled;
+
+        &-item {
+            padding-left:21px;
+            position:relative;
+            margin-bottom:6px;
+
+            &:before {
+                position:absolute;
+                left:-1px;
+                top:0.25em;
+                font-size:15px;
+                color:$yellow;
+            }
+        }
+    }
+
+    &__slider {
+        &-img {
+            display:block;
+            border-radius:$border-radius;
+            margin:0 auto 19px;
+            max-height:100%;
+        }
+
+        &-content {
+            text-align:center;
+        }
+
+        &-meta {
+            font-style:italic;
+            margin-bottom:6px;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        &__list {
+            margin-top:-45px;
+        }
+
+        &__slider {
+            margin-bottom:22px;
+
+            &-meta {
+                @include font($font-size-md, $line-height-lg);
+                margin-bottom:14px;
+            }
+
+            &-text {
+                @include font($font-size-md, $line-height-base-desktop);
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .section__container {
+            padding-top:0;
+            padding-bottom:0;
+        }
+
+        &__content {
+            background:none;
+            margin-bottom:0;
+            padding-top:132px;
+            padding-bottom:73px;
+        }
+
+        &__list {
+            &-item {
+                padding-left:27px;
+                margin-left:-27px;
+                margin-bottom:24px;
+
+                &:before {
+                    top:0.25em;
+                    font-size:20px;
+                }
+            }
+        }
+
+        &__slider {
+            padding-left:13px;
+
+            &-img-placeholder {
+                border-radius:$border-radius $border-radius 0 $border-radius;
+                display:flex;
+                background-color:$gray;
+                padding:14px;
+                margin-bottom:64px;
+                position:relative;
+            }
+
+            &-img {
+                margin:auto;
+            }
+
+            &-content {
+                text-align:left;
+                background-color:rgba($black,.85);
+                position:relative;
+                padding:25px 26px 34px;
+                border-radius:0 $border-radius $border-radius $border-radius;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+.mobile-nav {
+    width:277px;
+    position:fixed;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 0;
+    display: none;
+    background-color:$black;
+    padding:6px 10px 20px 20px;
+    color:$white;
+    min-height:100vh;
+    overflow-y:auto;
+
+    &:before {
+        position:absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        background:url(../i/mobile-nav-bg.jpg) 50% 0 no-repeat;
+        background-size:cover;
+        opacity:0.28;
+        content:'';
+    }
+
+    .slideout-open & {
+      display: block;
+    }
+
+    &__content {
+        position:relative;
+    }
+
+    &__header {
+        @include font(9.5px, 14px, 400, $font-family-serif-2);
+        text-transform:uppercase;
+        margin-bottom:23px;
+        margin-left:-5px;
+
+        b {
+            @include font(12.6px, 14px, 700, $font-family-sans-serif);
+        }
+    }
+
+    &__nav {
+        @include list-unstyled;
+        text-transform:uppercase;
+        margin-bottom:31px;
+    }
+
+    &__link {
+        @include font($font-size-h3, 36px);
+        text-decoration:none;
+    }
+
+    &__subnav {
+        @include list-unstyled;
+        margin-left:10px;
+        margin-top:2px;
+        margin-bottom:-2px !important;
+
+        &-link {
+            @include font($font-size-md, 36px);
+            text-decoration:none;
+        }
+    }
+
+    &__lang {
+        @include font(11px, $line-height-base);
+
+        &-item {
+            & + & {
+                margin-left:11px;
+            }
+        }
+    }
+}

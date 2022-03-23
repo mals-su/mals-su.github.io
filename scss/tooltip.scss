@@ -1,0 +1,47 @@
+.tooltip {
+    display:inline-block;
+    position:static;
+
+    &__toggle {
+        display:block;
+        color:$brand-primary;
+        font-size:19px;
+        cursor:pointer;
+    }
+
+    &__body {
+        position:absolute;
+        z-index:20;
+        left:50%;
+        top:100%;
+        background-color: $white;
+        padding:12px 12px 15px;
+        margin-top:21px;
+        transform: translateX(-50%);
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transition:0.25s;
+        text-align:left;
+        text-transform:none;
+        @include font($font-size-md, $line-height-md, 400, $font-family-sans-serif);
+        box-shadow: 0 5px 43px rgba(0,1,1,.16);
+
+        .tooltip:hover &,
+        .tooltip:focus & {
+            opacity:1;
+            visibility:visible;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        position:relative;
+ 
+        &__body {
+            left:7px;
+            width:273px;
+            padding:24px 42px 30px 26px;
+            transform: none;
+        }
+    }
+}

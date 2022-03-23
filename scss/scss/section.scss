@@ -1,0 +1,119 @@
+.section {
+    position:relative;
+
+    .container {
+        padding-top:22px;
+        padding-bottom:22px;
+    }
+
+    &__title {
+        text-align:center;
+    }
+
+    &__subtext {
+        margin-top:-39px;
+        margin-bottom:38px;
+    }
+
+    &_bg_img {
+        background-position:50%;
+        background-size:cover;
+        overflow-y:hidden;
+        color:$white;
+    }
+
+    &_divided_left,
+    &_divided_right {
+        .section__container {
+            background:none;
+            box-shadow: none;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        &__container {
+            background-color: rgba($black,.85);
+            box-shadow: 0 5px 43px rgba($black-2,.42);
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .container {
+            padding-top:50px;
+            padding-bottom:69px;
+        }
+
+        &__title {
+            text-align:left;
+        }
+
+        &_bg_gray {
+            position:relative;
+        }
+
+        &_bg_img {
+            .section__title {
+                margin-left:47.5%;
+            }
+        }
+
+        &_divided_left,
+        &_divided_right {
+            &:before {
+                background-color:rgba($black,.85);
+                box-shadow: 0 5px 43px rgba($black-2,.42);
+                width:50%;
+                position:absolute;
+                top:0;
+                bottom:0;
+                content:'';
+            }
+
+            .section__title {
+                margin-left:0;
+            }
+        }
+
+        &_divided_left {
+            &:before {
+                left:0;
+            }
+        }
+
+        &_divided_right {
+            &:before {
+                right:0;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        &_bg_img {
+            .section__title {
+                margin-left:41.5%;
+            }
+        }
+
+        &_divided_left,
+        &_divided_right {
+            .section__title {
+                margin-left:0;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        &_bg_img {
+            .section__title {
+                margin-left:35.26%;
+            }
+        }
+
+        &_divided_left,
+        &_divided_right {
+            .section__title {
+                margin-left:0;
+            }
+        }
+    }
+}

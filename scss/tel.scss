@@ -1,0 +1,14 @@
+.tel {
+    text-decoration: none;
+    color: $base-color-dark;
+    white-space:nowrap;
+
+    @include hover-focus {
+        text-decoration: none;
+        color: $base-color-dark;
+    }
+
+    &_lg {
+        @include font(22px, 22px, 700);
+    }
+}

@@ -1,0 +1,60 @@
+.hero {
+    background-image:url(../i/bg-hero.jpg);
+    padding-top:40px;
+
+    .section__container {
+        padding-top:0;
+    }
+
+    &__content {
+        background-color: rgba($white,.9);
+        color:$base-color;
+        margin-left:-10px;
+        margin-right:-10px;
+        margin-bottom:25px;
+        padding:19px 10px 24px;
+
+        .section__title {
+            margin-bottom:9px;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding-top:195px;
+
+        .section__container {
+            background:none;
+            box-shadow:none;
+        }
+
+        &__content {
+            box-shadow: 0 5px 43px rgba($black-2,.42);
+            border-radius:0 5px 0 5px;
+            margin-left:0;
+            margin-right:0;
+            margin-bottom:47px;
+            padding:8px 67px 35px 52px;
+            position:relative;
+        }
+
+        .section__title {
+            margin-left:0;
+            margin-bottom:15px;
+        }
+
+        .curve {
+            &_top {
+                background-color: rgba($white,.9);
+                width: 43%;
+
+                &:before {
+                    background-image: svg-url('<svg width="103" height="84" xmlns="http://www.w3.org/2000/svg"><path d="M0 83.744V0c20.7 0 33.001 17.152 33.001 17.152l21 27.242s14.441 20.714 25.002 31.278c2.042 2.043 4.378 3.597 6.819 4.776 6.16 2.975 12.984 3.557 17.415 3.552.129 0-3.843-.196-5.065-.256H0z" fill="#fff" fill-rule="nonzero"/></svg>');
+                }
+            }
+
+            &_bottom {
+                width: 36%;
+            }
+        }
+    }
+}

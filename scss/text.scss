@@ -1,0 +1,11 @@
+.text {
+    &_lg {
+        @include font($font-size-lg, $line-height-lg);
+    }
+
+    @include media-breakpoint-up(lg) {
+        &_lg {
+            @include font($font-size-lg-desktop, $line-height-lg-desktop);
+        }
+    }
+}

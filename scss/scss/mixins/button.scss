@@ -1,0 +1,92 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($color, $background, $border, $background-hover:null) {
+    $active-background: darken($background, 10%);
+    $active-border: darken($border, 12%);
+
+    @if $background-hover {
+        $active-background: $background-hover;
+        $active-border: $background-hover;
+    } 
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  @include hover {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+  }
+
+  &:focus {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+  }
+
+  &:active {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+    // Remove the gradient for the pressed/active state
+    background-image: none;
+
+    &:hover,
+    &:focus {
+      color: $color;
+      background-color: darken($background, 17%);
+          border-color: darken($border, 25%);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus {
+      background-color: $background;
+          border-color: $border;
+    }
+    @include hover {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+}
+
+@mixin button-outline-variant($font-color, $font-active-color, $color) {
+  color: $font-color;
+  background-image: none;
+  background-color: transparent;
+  border-color: $color;
+
+  &:focus,
+  &:active {
+    color: $font-active-color;
+    background-color: $color;
+        border-color: $color;
+  }
+  @include hover {
+    color: $font-active-color;
+    background-color: $color;
+        border-color: $color;
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus{
+      border-color: lighten($color, 20%);
+    }
+    @include hover {
+      border-color: lighten($color, 20%);
+    }
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height) {
+  padding: $padding-y $padding-x 0;
+  font-size: $font-size;
+  line-height: $line-height;
+}

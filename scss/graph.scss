@@ -1,0 +1,267 @@
+.graph {
+    background:url(../i/graph-bg.png) 50% 75% no-repeat;
+    background-size:contain;
+
+    &__title {
+        text-align:center;
+        margin-top:19px;
+    }
+
+    &__content {
+        margin-top:38px;
+        position:relative;
+    }
+
+    &__img {
+        display:block;
+        margin-left:-5px;
+    }
+
+    &__y,
+    &__x {
+        @include em-line-height($font-size-base, 15px);
+    }
+
+    &__y {
+        transform:rotate(-90deg);
+        position:absolute;
+        left:-25px;
+        top:23px;
+
+        &-text {
+            display:none;
+        }
+    }
+
+    &__x {
+        margin-top:8px;
+        margin-left:11px;
+    }
+
+    &__titles {
+        position:absolute;
+        top:-13px;
+        left:0;
+        right:0;
+        text-align:center;
+        @include font(10px, $line-height-base);
+        font-style:italic;
+
+        &-item {
+            position:relative;
+
+            &_1 {
+                margin-bottom:4%;
+                left:20px;
+            }
+            &_2 {
+                margin-bottom:1%;
+                left:10px;
+            }
+            &_3 {
+                left:37px;
+            }
+        }
+    }
+
+    &__notes {
+        font-style:italic;
+        margin-top:23px;
+
+        &-item {
+            padding-left:37px;
+            position:relative;
+            margin-bottom:14px;
+
+            &:before {
+                @include size(25px);
+                @include rounded;
+                background-color: $white;
+                box-shadow: inset 3px 4px 5px rgba(0,1,1,.22);
+                content:'';
+                position:absolute;
+                left:0;
+                top:50%;
+                margin-top:-13px;
+            }
+
+            &_speed {
+                &:before {
+                    background-image: -webkit-linear-gradient(top, #bbe6ec, #e7f9ff);
+                    background-image:    -moz-linear-gradient(top, #bbe6ec, #e7f9ff);
+                    background-image:      -o-linear-gradient(top, #bbe6ec, #e7f9ff);
+                    background-image:     -ms-linear-gradient(top, #bbe6ec, #e7f9ff);
+                    background-image:   linear-gradient(to bottom, #bbe6ec, #e7f9ff);
+                }
+            }
+
+            &_normal,
+            &_high {
+                display:inline-block;
+                vertical-align:middle;
+                width:49%;
+
+                &:after {
+                    position:absolute;
+                    left:0;
+                    top:50%;
+                    margin-top:-1px;
+                    content:'';
+                    @include size(25px, 4px);
+                }
+            }
+
+            &_normal {
+                &:after {
+                    background-color:#7ed559;
+                }
+            }
+
+            &_high {
+                &:after {
+                    background-color:#d05555;
+                }
+            }
+        }
+
+        &-text {
+            margin-bottom:9px;
+        }
+    }
+
+    @media (min-width:400px) {
+        &__titles {
+            &-item {
+                &_2 {
+                    margin-bottom:4%;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        background-position:50% -100%;
+
+        &__title {
+            text-align:left;
+            margin-top:29px;
+        }
+
+        &__content {
+            margin-top:75px;
+            margin-bottom:17px;
+        }
+ 
+        &__img {
+            margin-left:51px;
+        }
+
+        &__y,
+        &__x {
+            @include em-line-height($font-size-lg-desktop, $line-height-lg);
+            color:$white;
+            margin-right:13px;
+            white-space:nowrap;
+            text-align:center;
+            padding-top:11px;
+            padding-bottom:11px;
+
+            &:after {
+                position:absolute;
+                top:0;
+                right:-13px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 19.5px 0 19.5px 13px;
+                border-color: transparent transparent transparent transparent;
+                content:'';
+            }
+        }
+
+        &__y {
+            left:-185px;
+            top:185px;
+            width:408px;
+            background-image: -webkit-linear-gradient(left, #575757, $black);
+            background-image:    -moz-linear-gradient(left, #575757, $black);
+            background-image:      -o-linear-gradient(left, #575757, $black);
+            background-image:     -ms-linear-gradient(left, #575757, $black);
+            background-image:   linear-gradient(to right, #575757, $black);
+
+            &:after {
+                border-left-color: $black;
+            }
+
+            &-text {
+                display:inline;
+            }
+        }
+
+        &__x {
+            position:relative;
+            width:710px;
+            margin-top:19px;
+            margin-left:82px;
+            background-image: -webkit-linear-gradient(left, #f80000, #b90000);
+            background-image:    -moz-linear-gradient(left, #f80000, #b90000);
+            background-image:      -o-linear-gradient(left, #f80000, #b90000);
+            background-image:     -ms-linear-gradient(left, #f80000, #b90000);
+            background-image:   linear-gradient(to right, #f80000, #b90000);
+
+            &:after {
+                border-left-color: #b90000;
+            }
+        }
+
+        &__titles {
+            position:absolute;
+            top:-9px;
+            left:auto;
+            right:-24px;
+            text-align:left;
+            @include font($font-size-lg-desktop, $line-height-base);
+            width:160px;
+
+            &-item {
+                position:relative;
+
+                &_1 {
+                    margin-bottom:36px;
+                    left:0;
+                }
+                &_2 {
+                    margin-bottom:30px;
+                    left:0;
+                }
+                &_3 {
+                    left:0;
+                }
+            }
+        }
+
+        &__notes {
+            @include font($font-size-lg-desktop, $line-height-base);
+            margin-top:0;
+            position:absolute;
+            right:-24px;
+            top:200px;
+            width:170px;
+
+            &-item {
+                margin-bottom:28px;
+
+                &_normal,
+                &_high {
+                    display:block;
+                    width:auto;
+                }
+            }
+
+            &-text {
+                margin-bottom:17px;
+                padding-left:37px;
+            }
+        }
+    }
+}

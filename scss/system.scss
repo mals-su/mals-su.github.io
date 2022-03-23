@@ -1,0 +1,48 @@
+.system {
+    background-image:url(../i/bg-system.jpg);
+
+    &__content {
+        padding-top:10px;
+    }
+
+    &__list {
+        @include list-unstyled;
+
+        &-item {
+            padding-left:21px;
+            position:relative;
+            margin-bottom:22px;
+
+            &:before {
+                position:absolute;
+                left:-1px;
+                top:0.25em;
+                font-size:12px;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        background-size:auto;
+        background-position:100% 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__content {
+            padding-top:0;
+            margin-top:-4px;
+        }
+
+        &__list {
+            &-item {
+                padding-left:25px;
+                margin-bottom:24px;
+
+                &:before {
+                    top:0.25em;
+                    font-size:15px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.contacts {
+    &__list {
+        margin-top:-19px;
+        text-align:center;
+    }
+
+    &__item {
+        position:relative;
+        padding-left:66px;
+        @include font($font-size-md, $line-height-lg);
+        margin-top:34px;
+        min-width:300px;
+        display:inline-block;
+        text-align:left;
+
+        &-icon {
+            position:absolute;
+            left:-6px;
+            top:50%;
+            transform:translateY(-50%);
+            color:$brand-primary;
+            font-size:54px;
+            width:66px;
+            text-align:center;
+
+            &.icon-mail {
+                font-size:46px;
+            }
+        }
+
+        &-title {
+            font-weight:400;
+        }
+
+        &-text {
+            font-weight:700;
+            margin:0;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        &__list {
+            margin-top:-16px;
+            text-align:left;
+        }
+
+        &__item {
+            @include font($font-size-base-desktop, $line-height-base-desktop);
+            display:block;
+            margin:0;
+
+            &-icon {
+                &.icon-mail {
+                    font-size:50px;
+                }
+            }
+
+            &-title {
+                margin-bottom:6px;
+            }
+
+            &-text {
+                @include font($font-size-lg-desktop, $line-height-lg-desktop);
+            }
+        }
+    }
+}

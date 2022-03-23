@@ -1,0 +1,33 @@
+.subnav {
+    background-color:$white;
+
+    &__list {
+        @include list-unstyled;
+    }
+
+    &__link {
+        display: block;
+        @include font($font-size-md, $line-height-sm);
+        padding:7px 15px;
+
+        @include hover-focus {
+            text-decoration:none;
+        }
+
+        &.active {
+            color:$brand-primary;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        text-align:center;
+        padding-top:13px;
+        padding-bottom:16px;
+        box-shadow: 0 0 4px rgba($black, 0.25);
+
+        &__link {
+            padding-top:11px;
+            padding-bottom:11px;
+        }
+    }
+}

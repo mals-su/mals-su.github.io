@@ -1,0 +1,242 @@
+.form {
+    &__control {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: $input-height;
+        padding: $input-padding-y $input-padding-x;
+        color: $input-color;
+        border:0 ;
+        box-shadow:inset 0 5px 5px rgba($black-2,.24);
+        border-radius:$border-radius;
+        background: none;
+        background-color: $input-bg;
+        background-clip: padding-box;
+        border: solid $input-button-border-width $input-border-color;
+
+        @include font($input-font-size, $input-line-height, $font-family: $font-family-sans-serif);
+        @include transition(color ease-in-out 0.15s);
+        // Customize the `:focus` state to imitate native WebKit styles.
+
+        // Unstyle the caret on `<select>`s in IE10+.
+        &::-ms-expand {
+          border: 0;
+          background-color: transparent;
+        }
+
+        // Placeholder
+        &::placeholder {
+          opacity: 1;
+          color: $input-color-placeholder;
+          font-style:italic;
+        }
+  
+        &:-ms-input-placeholder {
+            color: $input-color-placeholder;
+            font-style:italic;
+        }
+
+        // Disabled and read-only inputs
+        //
+        // HTML5 says that controls under a fieldset > legend:first-child won't be
+        // disabled if the fieldset is disabled. Due to implementation difficulty, we
+        // don't honor that edge case; we style them as disabled anyway.
+        &:disabled,
+        &[readonly] {
+          opacity: 1;
+          background-color: $gray;
+          border-color: $gray;
+        }
+
+        &:disabled {
+          cursor: $cursor-disabled;
+        }
+
+        &:focus,
+        &:active {
+          outline: 0;
+        }
+
+        .has-error & {
+            color:$brand-primary;
+            box-shadow:inset 0 0 0 2px $brand-primary;
+        }
+    }
+  
+    &__control.select {
+      &:not([size]):not([multiple]) {
+        height: calc(#{$input-height} - #{$input-button-border-width});
+      }
+
+      &:focus::-ms-value {
+        // Suppress the nested default white text on blue background highlight given to
+        // the selected option text when the (still closed) <select> receives focus
+        // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+        // match the appearance of the native widget.
+        color: $input-color;
+      }
+    }
+  
+    // Make file inputs better match text inputs by forcing them to new lines.
+    &__control-file,
+    &__control-range {
+      display: block;
+    }
+
+    &__upload {
+        display:inline-block;
+        position: relative;
+        width: auto;
+
+        &-button {
+            width:168px;
+            margin-right:15px;
+        }
+
+        &-input {
+            display: inline-block;
+            width: 100%;
+            height: 50px;
+            opacity: 0;
+            cursor:pointer;
+            position:absolute;
+            left:0;
+            top:0;
+            bottom:0;
+        }
+    }
+
+    // Form groups
+    //
+    // Designed to help with the organization and spacing of vertical forms. For
+    // horizontal forms, use the predefined grid classes.
+
+    &__group {
+        &:not(:last-child) {
+            margin-bottom: $form-group-margin-bottom - 7;
+        }
+
+        &_center {
+            text-align:center;
+        }
+
+        &_submit {
+            position:absolute;
+            bottom:0;
+            left:10px;
+            right:10px;
+        }
+
+        @include media-breakpoint-up(md) {
+            &:not(:last-child) {
+                margin-bottom: $form-group-margin-bottom;
+            }
+
+            &_submit {
+                position:static;
+            }
+        }
+    }
+
+    &__row {
+        position:relative;
+        padding-bottom:65px;
+
+        @include media-breakpoint-up(md) {
+            padding-bottom:0;
+        }
+    }
+
+    &__col {
+        position:static;
+
+        @include media-breakpoint-up(md) {
+            &_left {
+                padding-right:0;
+            }
+        }
+    }
+
+    &__note {
+        @include font(9px, 14px);
+        margin-top:12px;
+
+        @include media-breakpoint-up(md) {
+            @include font($font-size-sm, $line-height-lg-desktop);
+            margin-top:16px;
+        }
+    }
+
+    @include media-breakpoint-between(md,md) {
+        .button {
+            font-size:$font-size-base-desktop;
+        }
+    }
+}
+
+textarea.form__control {
+  height: auto;
+  min-height:174px;
+  padding-top: $input-padding-y + 16px;
+
+  @include media-breakpoint-up(md) {
+      min-height:187px;
+  }
+}
+
+.custom-control {
+    position: relative;
+    display: inline-block;
+    padding-left: 35px;
+    cursor: pointer;
+    transition: color 0.25s ease-in-out;
+    text-align:left;
+    margin-top:7px;
+
+    &__input {
+      position: absolute;
+      z-index: -1; // Put the input behind the label so it doesn't overlay text
+      opacity: 0;
+    }
+
+    &__indicator {
+      position: absolute;
+      top:-2px;
+      left:0;
+      @include size(25px);
+      @include rounded;
+      user-select: none;
+      pointer-events: none;
+      color: inherit;
+      border:1px solid rgba($base-color,.5);
+      background-color:$white;
+
+      .section_bg_black & {
+          border-color:$white;
+          background-color:transparent;
+      }
+    }
+  
+    &__input:checked ~ &__indicator,
+    &__input:active ~ &__indicator {
+        &:before {
+            position:absolute;
+            top:7px;
+            left:7px;
+            @include size(9px);
+            background-color: $yellow;
+            content:'';
+            @include rounded;
+        }
+    }
+
+    .section_bg_black & {
+        margin-top:9px;
+        @include font($font-size-md, $line-height-base);
+    }
+ 
+    .form__choice & {
+        margin-left:21px;
+        margin-right:21px;
+    }
+}

@@ -1,0 +1,16 @@
+// Typoghraphy
+
+@mixin em-line-height($font-size-px, $line-height-px) {
+  line-height:$line-height-px/$font-size-px;
+}
+
+@mixin font($font-size, $line-height, $font-weight:null, $font-family:null) {
+  font-size: $font-size;
+  @include em-line-height($font-size, $line-height);
+  @if $font-weight {
+    font-weight:$font-weight;
+  }
+  @if $font-family {
+    font-family:$font-family;
+  }
+}

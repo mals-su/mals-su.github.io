@@ -1,0 +1,79 @@
+.effect {
+    &__img {
+        display:block;
+        margin:0 auto;
+    }
+
+    &__text {
+        margin-left:-10px;
+        margin-right:-10px;
+        margin-bottom:18px;
+        padding-left:10px;
+        padding-right:10px;
+
+        &_2 {
+            background:url(../i/effect-tab-1.png) 19% 0 no-repeat;
+            padding-top:40px;
+            margin-top:13px;
+            margin-bottom:30px;
+        }
+
+        &_3 {
+            background:url(../i/effect-tab-2.png) 60% 0 no-repeat;
+            margin-top:-10px;
+            padding-top:31px;
+            font-style:italic;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .container {
+            padding-top:52px;
+            padding-bottom:45px;
+        }
+
+        &__content {
+            display:flex;
+
+            &-left {
+                max-width:574px;
+                flex:0 0 574px;
+
+                .effect__img {
+                    margin:0;
+                }
+            }
+
+            &-right {
+                max-width:541px;
+                flex:0 0 541px;
+                margin-left:-112px;
+                margin-top:-13px;
+            }
+        }
+
+        &__text {
+            margin-left:0;
+            margin-right:0;
+            margin-bottom:0;
+            padding-left:0;
+            padding-right:0;
+
+            &_1 {
+                padding-right:112px;
+                margin-bottom:31px;
+            }
+
+            &_2 {
+                background-position:-46px 0;
+                padding:43px 75px 0 32px;
+                margin:17px 0 0 -32px;
+            }
+
+            &_3 {
+                background-position:-56px 0;
+                padding:44px 42px 0 118px;
+            }
+        }
+    }
+}

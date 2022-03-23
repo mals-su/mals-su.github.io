@@ -1,0 +1,143 @@
+//
+// Base styles
+//
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  text-transform:uppercase;
+  text-decoration: underline;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: $btn-border-width solid transparent;
+  border-radius:$border-radius;
+  outline: 0;
+
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height);
+  @include transition(all 0.2s ease-in-out);
+  @include hover-focus {
+    outline: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+      width:auto;
+  }
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      @include tab-focus();
+      outline: 0;
+    }
+  }
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: $cursor-disabled;
+    opacity: 0.65;
+  }
+  
+  & + & {
+      margin-top: 20px;
+  }
+  
+  @include media-breakpoint-up(sm) {
+      & + & {
+          margin-left: 50px;
+          margin-top:0;
+      }
+  }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.button.disabled,
+fieldset[disabled] a.button {
+  pointer-events: none;
+}
+
+//
+// Alternate buttons
+//
+
+.button_default {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border,$btn-default-hover-bg);
+  background-image: -webkit-linear-gradient(bottom, #010101, #313131);
+  background-image: -moz-linear-gradient(bottom, #010101, #313131);
+  background-image: -o-linear-gradient(bottom, #010101, #313131);
+  background-image: -ms-linear-gradient(bottom, #010101, #313131);
+  background-image: linear-gradient(to top, #010101, #313131);
+}
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.button_link {
+  color: $base-color;
+  border-radius: 0;
+  font-weight: normal;
+  text-transform:none;
+
+  @include hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: $link-hover-color;
+    background-color: transparent;
+  }
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:disabled {
+    @include hover-focus {
+      text-decoration: none;
+      color: $btn-link-disabled-color;
+    }
+  }
+}
+
+//
+// Block button
+//
+
+.button_block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.button_block + .button_block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.button_block {
+    width: 100%;
+  }
+}

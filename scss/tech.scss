@@ -1,0 +1,23 @@
+.tech {
+    background-image:url(../i/bg-tech.jpg);
+
+    &__content {
+        margin-top:-4px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        background-size:auto;
+        background-position:100% 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        .section__container {
+            padding-left:84px;
+            padding-right:87px;
+        }
+
+        &__content {
+            margin-top:-23px;
+        }
+    }
+}

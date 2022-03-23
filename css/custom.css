@@ -1,0 +1,305 @@
+/*
+ * Globals
+ */
+
+@media (min-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #555;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+.container {
+  max-width: 60rem;
+}
+
+
+/*
+ * Masthead for nav
+ */
+
+.blog-masthead {
+  margin-bottom: 3rem;
+  background-color: #428bca;
+  box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.nav-link {
+  position: relative;
+  padding: 1rem;
+  font-weight: 500;
+  color: #cdddeb;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+/* Active state gets a caret at the bottom */
+.nav-link.active {
+  color: #fff;
+}
+.nav-link.active::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -.3rem;
+  vertical-align: middle;
+  content: "";
+  border-right: .3rem solid transparent;
+  border-bottom: .3rem solid;
+  border-left: .3rem solid transparent;
+}
+
+
+/*
+ * Blog name and description
+ */
+
+.blog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  border-bottom: .05rem solid #eee;
+}
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+
+/*
+ * Main column and sidebar layout
+ */
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  padding: 1rem;
+}
+.sidebar-module-inset {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: .25rem;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+
+/*
+ * Blog posts
+ */
+
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+
+/*
+ * Footer
+ */
+
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+
+.mt10 {
+  margin-top: 10px !important;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}
+
+.mt30 {
+  margin-top: 30px !important;
+}
+
+.mt40 {
+  margin-top: 40px !important;
+}
+
+.mt50 {
+  margin-top: 50px !important;
+}
+
+.mt60 {
+  margin-top: 60px !important;
+}
+
+.mt70 {
+  margin-top: 70px !important;
+}
+
+.mt80 {
+  margin-top: 80px !important;
+}
+
+.mt90 {
+  margin-top: 90px !important;
+}
+
+.mt100 {
+  margin-top: 100px !important;
+}
+
+.mb10 {
+  margin-bottom: 10px !important;
+}
+
+.mb20 {
+  margin-bottom: 20px !important;
+}
+
+.mb30 {
+  margin-bottom: 30px !important;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
+}
+
+.mb50 {
+  margin-bottom: 50px !important;
+}
+
+.mb60 {
+  margin-bottom: 60px !important;
+}
+
+.mb70 {
+  margin-bottom: 70px !important;
+}
+
+.mb80 {
+  margin-bottom: 80px !important;
+}
+
+.mb90 {
+  margin-bottom: 90px !important;
+}
+
+.mb100 {
+  margin-bottom: 100px !important;
+}
+
+@media print {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+        float: left;
+  }
+  .col-sm-12 {
+      width: 100%;
+  }
+  .col-sm-11 {
+      width: 91.66666667%;
+  }
+  .col-sm-10 {
+      width: 83.33333333%;
+  }
+  .col-sm-9 {
+      width: 75%;
+  }
+  .col-sm-8 {
+      width: 66.66666667%;
+  }
+  .col-sm-7 {
+      width: 58.33333333%;
+  }
+  .col-sm-6 {
+      width: 50%;
+  }
+  .col-sm-5 {
+      width: 41.66666667%;
+  }
+  .col-sm-4 {
+      width: 33.33333333%;
+  }
+  .col-sm-3 {
+      width: 25%;
+  }
+  .col-sm-2 {
+      width: 16.66666667%;
+  }
+  .col-sm-1 {
+      width: 8.33333333%;
+  }
+  .p_broke {
+    page-break-after: always !important;
+  }
+  .fixh {
+    position: relative;
+    height: 170px;
+  }
+  .fixh img{
+    position: absolute;
+    bottom: 0;
+  }
+
+}

@@ -1,0 +1,86 @@
+.curve {
+    @include media-breakpoint-up(lg) {
+        height: 84px;
+        background-color: $gray;
+        position: absolute;
+        z-index: 10;
+
+        &:before {
+            width:104px;
+            height:84px;
+            position:absolute;
+            background-image: svg-url('<svg width="104" height="84" xmlns="http://www.w3.org/2000/svg"><path d="M103.24 83.744V0c-20.7 0-33.001 17.152-33.001 17.152l-21 27.242S34.797 65.108 24.236 75.672c-2.042 2.043-4.378 3.597-6.819 4.776C11.258 83.423 4.434 84.005.003 84c-.129 0 3.843-.196 5.065-.256h98.172z" fill="#d9d9d9" fill-rule="nonzero"/></svg>');
+            background-repeat:no-repeat;
+            content:'';
+        }
+
+        &_top {
+            width: 43%;
+            right: 0;
+            top: -83px;
+
+            &:before {
+                left:-103px;
+            }
+        }
+
+        &_bottom {
+            width: 30%;
+            left: 0;
+            bottom: -83px;
+
+            &:before {
+                right:-103px;
+                transform:rotate(180deg);
+            }
+        }
+
+        &_sm {
+            &.curve {
+                height: 25px;
+                width: 173px;
+
+                &:before {
+                    width:30px;
+                    height:25px;
+                    background-size:auto 25px;
+                    opacity:0.9;
+                }
+            }
+
+            &.curve_top {
+                background-color: rgba(232,45,30,1);
+                right: auto;
+                left:0;
+                top: -25px;
+                border-top-left-radius:$border-radius;
+ 
+                &:before {
+                    left:auto;
+                    right:-30px;
+                    background-image: svg-url('<svg width="103" height="84" xmlns="http://www.w3.org/2000/svg"><path d="M0 83.744V0c20.7 0 33.001 17.152 33.001 17.152l21 27.242s14.441 20.714 25.002 31.278c2.042 2.043 4.378 3.597 6.819 4.776 6.16 2.975 12.984 3.557 17.415 3.552.129 0-3.843-.196-5.065-.256H0z" fill="#e82d1e" fill-rule="nonzero"/></svg>');
+                }
+            }
+
+            &.curve_bottom {
+                right: 0;
+                left:auto;
+                bottom: -25px;
+                background-color: rgba(232,45,30,1);
+                border-bottom-right-radius:$border-radius;
+ 
+                &:before {
+                    left:-30px;
+                    transform:none;
+                    background-image: svg-url('<svg width="103" height="84" xmlns="http://www.w3.org/2000/svg"><path d="M103.24.256V84c-20.7 0-33.001-17.152-33.001-17.152l-21-27.242S34.797 18.892 24.236 8.328c-2.042-2.043-4.378-3.597-6.819-4.776C11.258.577 4.434-.005.003 0c-.129 0 3.843.196 5.065.256h98.172z" fill="#e82d1e" fill-rule="nonzero"/></svg>');
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        &_bottom {
+            width: 36%;
+        }
+    }
+}

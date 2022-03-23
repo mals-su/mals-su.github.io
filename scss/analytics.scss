@@ -1,0 +1,53 @@
+.analytics {
+    background-image:url(../i/bg-analytics.jpg);
+    background-position:100% 0;
+
+    &__content {
+        margin-bottom:32px;
+    }
+
+    &__text {
+        margin:-5px 26px 19px;
+    }
+
+    &__table {
+        &-img {
+            display:block;
+            margin:0 auto;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__content {
+            white-space:nowrap;
+            margin-bottom:11px;
+
+            .text {
+                white-space:normal;
+            }
+        }
+
+        &__text {
+            margin:-26px 24px 31px;
+        }
+
+        &__table {
+            display:inline-block;
+            vertical-align:top;
+            margin-left:-8px;
+        }
+
+        &__diagram {
+            display:inline-block;
+            vertical-align:top;
+            width:395px;
+            margin-top:20px;
+            margin-left:-9px;
+
+            &-text {
+                margin-left:45px;
+                margin-top:48px;
+            }
+        }
+    }
+}

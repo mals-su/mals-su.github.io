@@ -1,0 +1,47 @@
+.link {
+    &_black {
+        color:$base-color-dark;
+    }
+
+    &_white {
+        color:$white;
+
+        .section_bg_img &:hover,
+        .section_bg_img &:focus {
+            color:rgba($white,.5);
+        }
+    }
+
+    &_yellow {
+        color:$yellow;
+
+        .section_bg_img &:hover,
+        .section_bg_img &:focus {
+            color:$white;
+        }
+    }
+
+    &_pseudo {
+        text-decoration:none;
+        border-bottom:1px dashed #828283;
+    }
+
+    &_dotted {
+        text-decoration:none;
+        border-bottom:1px dotted;
+    }
+
+    &_icon_right {
+        position:relative;
+        padding-right:26px;
+
+        .link__icon {
+            color:$white;
+            font-size:17px;
+            position:absolute;
+            right:0;
+            top:50%;
+            transform:translateY(-50%);
+        }
+    }
+}
