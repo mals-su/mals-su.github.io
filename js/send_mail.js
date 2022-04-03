@@ -31,13 +31,16 @@ jQuery(document).ready(function($){
             return ;
         }
 
-        $.ajax({
-            url : 'send_mail.php',
-            type : 'POST',
-            processData: false,
+        let json = {
+            name: name.val(),
+            email: email.val(),
+            text: text.val()
+        }
+
+        $.post({
+            url : 'https://functions.yandexcloud.net/d4en9oafvbkqujnpvobf',
             contentType: false,
-            cache:false,
-            data : formData,
+            data : JSON.stringify(json),
             success : function (msg){
                 if (msg){
                     if (msg == 'error'){
